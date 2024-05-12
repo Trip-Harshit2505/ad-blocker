@@ -1,0 +1,43 @@
+{
+    "name": "Ad Blocker",
+    "version": "1.0.1",
+    "manifest_version": 3,
+    "description": "Block YouTube ads automatically.",
+    "action": {
+        "default_popup": "/popup.html",
+        "default_icon": {
+            "32": "/images/icon32.png",
+            "48": "/images/icon48.png",
+            "128": "/images/icon128.png"
+        }
+    },
+    "icons": {
+        "128": "/images/icon128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.youtube.com/*"
+            ],
+            "js": [
+                "script.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "declarativeNetRequest",
+        "tabs",
+        "activeTab",
+        "storage"
+    ],
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "ruleset_1",
+                "enabled": true,
+                "path": "rules.json"
+            }
+        ]
+    }
+}
