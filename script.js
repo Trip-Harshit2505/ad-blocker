@@ -15,7 +15,6 @@ function selfObserver(documentNode) {
 
     // Start observing
     observer.observe(documentNode, config);
-    return { observer };
 }
 
 function adFunction() {
